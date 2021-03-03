@@ -5,7 +5,11 @@
  "main": "index.js",
  "scripts": {
    "test": "jest",
-   "start": "node index.js"
+   "start": "node server/index.js",
+   "backend": "nodemon backend/index.js",
+   "frontend": "npm run front --prefix client",
+   "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+   "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --refix client && npm run build --prefix client"
  },
  "author": "",
  "license": "ISC",
